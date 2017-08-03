@@ -1,4 +1,3 @@
 python-dateutil
 gunicorn
-httplib
 APScheduler==3.0.0
