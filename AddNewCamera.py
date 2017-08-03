@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import httplib2
+import httplib
 import json
 import csv
 import os
@@ -30,7 +30,7 @@ def definition():
 
 def getData(app_id, rest_api_key, api_endpoint, master_key=None, limit=200, order="-createdAt", skip=None, filter_json=filter_sorted, api_version=1):
 
-    con = httplib2.HTTPSConnection('parseapi.back4app.com', 443)
+    con = httplib.HTTPSConnection('parseapi.back4app.com', 443)
     con.connect()
 
     header_dict = {'X-Parse-Application-Id': app_id,
@@ -118,7 +118,7 @@ def getWhoCalled():
                 newList.append(x)
 
         for x in newList:
-            con = httplib2.HTTPSConnection('parseapi.back4app.com', 443)
+            con = httplib.HTTPSConnection('parseapi.back4app.com', 443)
             con.connect()
             fullurl = '/classes/AddNewCamera/' + x["objectId"]
             newdict = {"lat" : x["lat"], "long" : x["long"], "type" : "mobile", "sorted" : True}
