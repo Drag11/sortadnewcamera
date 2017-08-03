@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from whoCalled import *
+from AddNewCamera import *
 
 sched = getWhoCalled()
 
