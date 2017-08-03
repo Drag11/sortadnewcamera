@@ -110,12 +110,12 @@ def getWhoCalled():
            	#f.writerow([x["lat"], x["long"], x["type"], x["heading"], dateutil.parser.parse(x["createdAt"]).strftime("%d-%b-%Y, %H:%M:%S")])
             #f.writerow(x.values())
 
-            	x["lat2"] = x.pop("long")
-        	x["long"] = x.pop("lat")
-        	x["lat"] = x.pop("lat2")
-        	x["sorted"] = True
-        	x["type"] = "mobile"
-        	newList.append(x)
+                x["lat2"] = x.pop("long")
+                x["long"] = x.pop("lat")
+                x["lat"] = x.pop("lat2")
+                x["sorted"] = True
+                x["type"] = "mobile"
+                newList.append(x)
 
         for x in newList:
             con = httplib.HTTPSConnection('parseapi.back4app.com', 443)
