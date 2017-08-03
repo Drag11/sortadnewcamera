@@ -56,7 +56,7 @@ def getData(app_id, rest_api_key, api_endpoint, master_key=None, limit=200, orde
 
     try:
         response = json.loads(con.getresponse().read())
-    except Exception, e:
+    except Exception as e:
         response = None
         raise e
 
