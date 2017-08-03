@@ -65,7 +65,6 @@ def getData(app_id, rest_api_key, api_endpoint, master_key=None, limit=200, orde
 def getWhoCalled():
 
     definition()
-    print "*** Requesting...  ***\n"
 
     class_list = CLASSES.split(",") #For multiple classes!
     DEFAULT_CLASSES = {'User': 'users', 'Role': 'roles', 'File': 'files', 'Events': 'events', 'Installation': 'installations'}
@@ -83,7 +82,6 @@ def getWhoCalled():
         else:
             endpoint = DEFAULT_CLASSES[classname]
 
-        print endpoint
         sys.stdout.write(' Fetching %s table data - ' % classname)
         sys.stdout.flush()
        
@@ -98,15 +96,12 @@ def getWhoCalled():
                 skip_count = skip_count+1
                 results['results'].extend(response['results'])
                 parse_done = time.clock() - startTimer
-                print ' Got: %.0f records in %.4f secs\n' % (object_count, parse_done)
                 break
 
             else:
                 parse_done = time.clock() - startTimer
-                print ' Got: %.0f records in %.4f secs\n' % (object_count, parse_done)
                 break
 
-        print 'Fixing columns... '
 
         newList = []
         for x in results["results"]:
@@ -136,7 +131,6 @@ def getWhoCalled():
             con.request('PUT', fullurl, json.dumps(newdict), header_dict)
 
             result = con.getresponse().read()
-            print result
 
 
 def returnOnlyPath():
